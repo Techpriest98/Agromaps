@@ -1,0 +1,8 @@
+{% extends "map/index.html" %}
+
+{% block detail %}
+		<h4>{{field.title}}</h4>
+		<p>Площа: {{field.square}}</p>
+		<p>Посадженно: {{culture.name}}</p>
+		<p>Процес: {{process.name}}</p>
+{% endblock %}
