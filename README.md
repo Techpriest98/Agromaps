@@ -7,7 +7,7 @@ Students project
 Install base packages:
 
 ```bash
-sudo apt install python3.7 python3-pip mysqlclient mysql-server
+sudo apt install python3.7 python3-pip python3-dev mysqlclient mysql-server libmysqlclient-dev
 ```
 Setup virtual environment:
 ```bash
