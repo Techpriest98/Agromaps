@@ -1,0 +1,9 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+	<form id='some-id' method="POST">
+		{% csrf_token %}
+	</form>
+	<p>ssss</p>
+	{{ block.super }}
+{% endblock object-tools %}

@@ -55,7 +55,7 @@ ROOT_URLCONF = 'agromaps.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'map/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'agromaps.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE' : 'django.db.backends.mysql',
-        'NAME' : 'agromaps',
+        'NAME' : 'agro_maps',
         'USER' : 'root',
         'PASSWORD' : '',
         'HOST' : 'localhost',

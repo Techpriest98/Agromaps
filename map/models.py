@@ -12,6 +12,7 @@ class Process(models.Model):
 #Агро культура
 class Culture(models.Model):
     name = models.CharField(max_length=9)
+    color = models.CharField(max_length=7, default="#cccccc")
 
     #Отображение названия модели в админке
     def __str__(self):
@@ -19,15 +20,22 @@ class Culture(models.Model):
     
 #Поле
 class Field(models.Model):
-    title = models.CharField(max_length=9)
+    title = models.CharField(max_length=16)
     square = models.FloatField()
-    cultureID = models.ForeignKey(Culture, on_delete=models.CASCADE)
-    process = models.ForeignKey(Process,default=1, on_delete=models.CASCADE)
+    polygon =  models.CharField(max_length=256, default="")
 
     #Отображение названия модели в админке
     def __str__(self):
         return (self.title)
 
+#Посів поля
+class SeedProcess(models.Model):
+    seedDate = models.DateField(auto_now_add=True)
+    harvestDate = models.DateField()
+    field = models.ForeignKey(Field,default=1, on_delete=models.CASCADE)
+    culture =  models.ForeignKey(Culture, default=1, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return(str(self.seedDate))
 
 
