@@ -3,3 +3,4 @@ agromaps/__pycache__/
 map/migrations/__pycache__/
 /venv/
 /.idea/
+/agromaps/settings.py
