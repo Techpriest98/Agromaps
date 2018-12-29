@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+
+{% block mainContent %}
+	<h1>Новини підприємства</h1>
+	{% if user.is_authenticated %}
+		<button type="submit" class="co-button"><i class="far fa-newspaper"></i> <a href="/news/new_post">Додати публікацію</a></button>	
+		<br>
+	{% endif %}
+	{% for post in posts %}
+		<div class="row">
+			<div class="col-3">
+				<div class="galery">
+					<img src="{{ MEDIA_URL }}{{post.preview.image.url }}">	
+				</div>
+			</div>
+			<div class="col">
+				<a href="{{ post.id }}/"><h3>{{ post.title }}</h3></a>
+				<p class="post-date"> {{ post.datetime }}</p>
+				<p class="post-content">{{ post.content|slice:":128" }}...</p>
+			</div>
+			{% if user.is_authenticated %}
+			<div class="col-4">
+				<button type="submit" class="co-button"><i class="fas fa-edit"></i> <a href="{{ post.id }}/edit">Редагувати</a>
+				</button>
+			</div>
+			{% endif %}
+		</div>
+	{% endfor %}
+{% endblock %}

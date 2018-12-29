@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+
+{% block mainContent %}
+	<br>
+	<h1>Видалення публікації</h1>
+	<br>
+	<form method="POST">
+		<p>Ви впевненні, що бажаєте видалити дану публікацію</p>
+		<br>
+		<center><button type="submit" name="_method" value="delete" class="co-button"><i class="fas fa-save"></i>Так.</button></center>
+		<br>
+	</form>
+
+	<a href="/news/">Ні. Повернутися до переліку публікацій</a>
+{% endblock %}

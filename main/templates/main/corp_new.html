@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block mainContent %}
+	<br>
+	<form method="POST">
+		{% csrf_token %}
+		<table class="table table-bordered table-dark">
+			{{corp_form.as_table}}
+		</table>
+		<br>
+		<button type="submit" class="co-button">Зберегти зміни</button>
+	</form>
+{% endblock %}

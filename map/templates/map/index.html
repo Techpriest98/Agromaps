@@ -2,7 +2,7 @@
 
 {% block pageContent %}
 	<div class="row">
-		<div class="col-4 window-block">
+		<div class="col-3 window-block">
 			<p>Журнал обліку полів</p>
 			<table>
 				<tr>
@@ -30,7 +30,7 @@
 			{% endblock %}
 		</div>
 
-		<div class="col-7">
+		<div class="col-8">
 			<div class="map-window-block">
 				<p>Карта полів</p>
 				<div id="map"></div>
@@ -41,5 +41,9 @@
 
 {% block loadscript %}
 	{% load static %}
-	<script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+	<script type="text/javascript" src="{% static 'map/js/map.js' %}"></script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Awqy1JqMvPwazWB-H90j9CRm6vuWN-4&callback=initMap"
+  	type="text/javascript">
+	</script>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+{% block mainContent %}
+	<br>
+	<h1>Створення нової публікації</h1>
+	<br>
+	<form method="POST">
+		{% csrf_token %}
+		<table class="table table-bordered table-dark">
+			{{post_form.as_table}}
+		</table>
+		<br>
+		<center>
+		<button type="submit" class="co-button"><i class="fas fa-save"></i> Опублікувати</button>
+		</center>
+		<br>
+	</form>
+{% endblock %}

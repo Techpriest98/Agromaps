@@ -1,0 +1,187 @@
+@font-face {
+    font-family: EveSansRegular;
+    src: url("fonts/evesansneue-regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: EveSansAlpha;
+    src: url("fonts/eve.ttf") format("truetype");
+}
+
+
+html
+{
+    min-height: 100%;
+}
+
+body
+{
+    font-family: EveSansRegular;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sidebar-nav
+{
+    padding: 0px 0px 0px 0px;
+}
+
+.eve-header
+{
+	font-size: 24px;
+	font-family: EveSansAlpha;
+}
+
+.colored-link
+{
+	color: #2980B9 !important;
+}
+
+.page
+{
+	background-color: rgba(0,0,0,0.5);
+}
+.page-content h1, h3
+{
+	margin-top: 30px;
+	color: #fff;
+}
+
+.page-content p
+{
+	color: #aaa;
+	font-size: 18px;
+}
+
+.post-content
+{
+	color: #eee !important;
+}
+.post-date
+{
+	color: #f4c700 !important;
+}
+
+
+
+.page-content a
+{
+	color: #f4c700;
+	font-size: 18px;
+}
+
+.galery
+{
+	margin: 20px 20px 20px 20px;
+	border: 2px solid #555;
+}
+.galery img
+{
+	width: 100%;
+	height: auto;
+}
+
+#sidebar-wrapper
+{
+	position: fixed;
+	width: 200px;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+	padding: 0px 0px 0px 0px;
+	left: -200px;
+	transition: all 500ms linear;
+
+}
+
+#sidebar-wrapper.active
+{
+	left: 0px;
+}
+
+#sidebar-nav-li 
+{
+    padding: 32px 8px;
+    text-align: center;
+}
+
+#sidebar-nav-li a
+{
+    color: #aaa;
+    text-decoration: none;
+}
+
+#sidebar-nav-li a:hover
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#sidebar-nav-li a i
+{
+   font-size: 42px;
+   padding-bottom: 10px;
+}
+
+#toggle-btn
+{
+	position: absolute;
+	left: 230px;
+	top: 30px;
+	cursor: pointer;
+}
+
+#toggle-btn span
+{
+	display: block;
+	width: 40px;
+	height: 6px;
+	background: #aaa;
+	margin: 6px 0px;
+}
+
+.co-button
+{
+    margin-top: 16px;
+    border: 0px solid #000;
+    background-color: #2980B9;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.co-button:hover
+{
+    margin-top: 16px;
+    border: 0px solid #000;
+    background-color: #fff;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+
+.co-button a
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+.co-button:hover a
+{
+	color: #000;
+	text-decoration: none;
+}
+
+.button-red
+{
+	background-color: #a00;
+}
+
+.button-green
+{
+	background-color: #0a0;
+}

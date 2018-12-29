@@ -1,0 +1,9 @@
+{% extends "main/base.html" %}
+{% block mainContent %}
+	<h3>{{ post.title }}</h3>
+	<p class="post-date"> {{ post.datetime }}</p>
+	<div class="galery">
+		<img src="{{ MEDIA_URL }}{{post.preview.image.url }}">	
+	</div>
+	<p class="post-content">{{ post.content }}</p>
+{% endblock %}

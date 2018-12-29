@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block mainContent %}
+	<br>
+	<h1>Редагування інформації про підприємство</h1>
+	<br>
+	<form method="POST">
+		{% csrf_token %}
+		<table class="table table-bordered table-dark">
+			{{corp_form.as_table}}
+		</table>
+		<br>
+		<center><button type="submit" class="co-button button-green"><i class="fas fa-save"></i> Зберегти зміни</button></center>
+		<br>
+	</form>
+{% endblock %}

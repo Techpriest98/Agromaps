@@ -1,0 +1,93 @@
+@font-face {
+    font-family: EveSansRegular;
+    src: url("fonts/evesansneue-regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: EveSansAlpha;
+    src: url("fonts/eve.ttf") format("truetype");
+}
+
+html
+{
+    min-height: 100%;
+}
+
+body
+{
+    font-family: EveSansRegular;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-window .col-6
+{
+    padding: 32px 32px 32px 32px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.login-window h1
+{
+    color: #fff;
+    font-family: EveSansAlpha;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-window h2
+{
+    color: #fff;
+    font-family: EveSansRegular;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-window form
+{
+    margin-top: 16px;
+    color: #aaa;
+}
+
+.login-window form p input
+{
+    float: right;
+    width: 70%;
+}
+
+.login-window form p label
+{
+    font-size: 18px;
+}
+
+.login-window form input
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.co-button
+{
+    margin-top: 16px;
+    border: 0px solid #000;
+    background-color: #2980B9;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.co-button:hover
+{
+    margin-top: 16px;
+    border: 0px solid #000;
+    background-color: #fff;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+

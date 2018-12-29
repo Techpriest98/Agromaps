@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+{% block mainContent %}
+	<br>
+	<h1>Редагування публікації</h1>
+	<br>
+	<form method="POST">
+		{% csrf_token %}
+		<table class="table table-bordered table-dark">
+			{{post_form.as_table}}
+		</table>
+		<br>
+		<center>
+		<button type="submit" name="_method" value="put" class="co-button button-green"><i class="fas fa-save"></i> Зберегти зміни</button>
+		<button type="submit" name="_method" value="delete" class="co-button button-red"><i class="fas fa-trash"></i> Видалити</button>
+		</center>
+		<br>
+	</form>
+{% endblock %}
