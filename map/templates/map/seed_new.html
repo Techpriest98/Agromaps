@@ -1,0 +1,49 @@
+{% extends "map/base.html" %}
+
+{% block pageContent %}
+	<div class="row">
+		<div class="col-9">
+			<!-- MAP -->
+			<div class="window-block">
+				<div class="window-block-head">
+					<p>Карта полів</p>
+				</div>
+				<div class="window-block-body">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-3">
+			<div class="window-block">
+				<div class="window-block-head">
+					<p>Новий посів</p>
+				</div>
+				<form method="POST">
+					<div class="window-block-body">
+						<div class="table-container">
+							{% csrf_token %}
+							<table class="table table-bordered table-dark">
+								{{seed_form.as_table}}
+							</table>
+						</div>
+						<center>
+							<button type="submit" class="co-button">
+								<i class="fas fa-save"></i>
+								Додати
+							</button>
+						</center>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}	
+
+{% block loadscript %}
+	{% load static %}
+	<script type="text/javascript" src="{% static 'map/js/map.js' %}"></script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Awqy1JqMvPwazWB-H90j9CRm6vuWN-4&callback=initMap"
+  	type="text/javascript">
+	</script>
+{% endblock %}

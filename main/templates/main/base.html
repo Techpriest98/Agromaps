@@ -17,17 +17,17 @@
 		<!-- SIDEBAR -->
 		<div id="sidebar-wrapper">
 			<div id="toggle-btn">
-				<span></span>
-				<span></span>
-				<span></span>
+				<i class="fas fa-bars"></i>
 			</div>
 			<ul class="sidebar-nav">
-				<li id="sidebar-nav-li"><a href="/" class="sidebar-toggle"><h6 class="eve-header">CROPS<br>online</h6></a></li>
+				<div class="toggle-place"></div>
+				<li id="sidebar-nav-li"><a href="/" class="sidebar-toggle">
+					<h6 class="eve-header">crops<br>online</h6></a>
+				</li>
 				{% if user.is_authenticated %}
 				<li id="sidebar-nav-li"><a class="colored-link" href="#"><i class="fas fa-user-tie"></i><br>{{ user.get_username }}</a></li>
 				<li id="sidebar-nav-li"><a href="map/"><i class="fas fa-map"></i><p>Карта полів</p></a></li>
-				<li id="sidebar-nav-li"><a href="#"><i class="fas fa-align-justify"></i><p>Журнал обліку полів</p></a></li>
-				<li id="sidebar-nav-li"><a href="authentication/logout/"><i class="fas fa-sign-out-alt"></i><br>Вихід</a></li
+				<li id="sidebar-nav-li"><a href="authentication/logout/"><i class="fas fa-sign-out-alt"></i><br>Вихід</a></li>
 				{% else %}
 				<li id="sidebar-nav-li"><a href="authentication/login/"><i class="fas fa-user-tie"></i><br>Вхід до системи</a></li>
 				{% endif %}

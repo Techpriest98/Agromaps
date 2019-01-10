@@ -30,7 +30,7 @@ class Field(models.Model):
 
 #Посів поля
 class SeedProcess(models.Model):
-    seedDate = models.DateField(auto_now_add=True)
+    seedDate = models.DateField()
     harvestDate = models.DateField()
     field = models.ForeignKey(Field,default=1, on_delete=models.CASCADE)
     culture =  models.ForeignKey(Culture, default=1, on_delete=models.CASCADE)

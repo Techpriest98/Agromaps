@@ -1,39 +1,67 @@
 {% extends "map/base.html" %}
 
+{% block navbar %}
+	<li id="sidebar-nav-li">
+		<a href="/map/fields/"><i class="fas fa-map"></i><br>Журнал полів</a>
+	</li>
+	<li id="sidebar-nav-li">
+		<a href="/map/cultures/"><i class="fas fa-clipboard-list"></i><br>Журнал культур</a>
+	</li>
+{% endblock %}
+
 {% block pageContent %}
 	<div class="row">
-		<div class="col-3 window-block">
-			<p>Журнал обліку полів</p>
-			<table>
-				<tr>
-					<th>Дата посіву</th>
-					<th>Культура</th>
-					<th>Площа</th>
-				</tr>
-				{% for seed in seeds %}
-					<tr>
-						<td>
-							<a href="{% url 'map:detail' seed.id %}">{{ seed.seedDate }}</a>	
-						</td>
-						<td>
-							<p href="{% url 'map:detail' seed.id %}"><i class="fas fa-square-full" style="color: {{ seed.culture.color }};"></i> {{seed.culture }}</p>	
-
-						</td>
-						<td>
-							<p href="{% url 'map:detail' seed.id %}">{{ seed.field.square }} м2</p>	
-						</td>
-					</tr>
-				{% endfor %}
-			</table>
-			
-			{% block detail %}
-			{% endblock %}
-		</div>
-
 		<div class="col-8">
-			<div class="map-window-block">
-				<p>Карта полів</p>
-				<div id="map"></div>
+			<!-- MAP -->
+			<div class="window-block">
+				<div class="window-block-head">
+					<p>Карта посівів</p>
+				</div>
+				<div class="window-block-body">
+					<div id="map"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="window-block">
+				<div class="window-block-head">
+					<p>Журнал обліку посівів</p>
+				</div>
+				<div class="window-block-body">
+					<div class="table-container">
+						<table>
+							<thead>
+								<tr>
+									<th>Дата посіву</th>
+									<th>Культура</th>
+									<th>Дія</th>	
+								</tr>
+							</thead>
+							<tbody>
+								{% for seed in seeds %}
+									<tr>
+										<td>
+											<a href="{% url 'map:detail' seed.id %}">{{ seed.seedDate }}</a>	
+										</td>
+										<td>
+											<p href="{% url 'map:detail' seed.id %}"><i class="fas fa-square-full" style="color: {{ seed.culture.color }};"></i> {{seed.culture }}</p>	
+
+										</td>
+										<td>
+											<a href="{% url 'map:seed_edit' seed.id %}"><i class="fas fa-edit"></i> </a>
+										</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+					<center>
+						<button type="submit" class="co-button" >
+							<i class="fas fa-edit"></i> 
+							<a href="/map/new_seed/">Додати новий посів</a>
+						</button>
+					</center>
+				</div>
 			</div>
 		</div>
 	</div>

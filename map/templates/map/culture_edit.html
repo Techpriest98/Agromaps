@@ -1,0 +1,38 @@
+{% extends "map/base.html" %}
+
+{% block pageContent %}
+	<div class="row">
+		<div class="col">
+		</div>
+		<div class="col-3">
+			<div class="window-block">
+				<div class="window-block-head">
+					<p>Редагувати культуру</p>
+				</div>
+				<form method="POST">
+					<div class="window-block-body">
+						<div class="table-container">
+							{% csrf_token %}
+							<table class="table table-bordered table-dark">
+								{{culture_form.as_table}}
+							</table>
+						</div>
+						<center>
+							<button type="submit" class="co-button" name="_method" value="put">
+								<i class="fas fa-plus"></i>
+								Зберегти
+							</button>
+						</center>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col">
+		</div>
+	</div>
+{% endblock %}	
+
+{% block loadscript %}
+	{% load static %}
+	<script type="text/javascript" src="{% static 'map/js/cultures.js' %}"></script>
+{% endblock %}

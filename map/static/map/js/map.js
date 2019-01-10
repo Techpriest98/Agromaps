@@ -1,8 +1,3 @@
-//function initMap()
-//{
-//}
-//window.onload = function()
-//{
 	var map;
 	var infoWindow;
 
@@ -11,6 +6,14 @@
 	var seedUrl = "seed";
 
 	var fieldDetail = "";
+
+	var wPath;
+
+	document.getElementById('toggle-btn').onclick = function()
+	{
+		document.getElementById('sidebar-wrapper').classList.toggle('active');
+		document.getElementById('toggle-btn').classList.toggle('active');
+	}
 
 	function initMap()
 	{
@@ -38,15 +41,25 @@
 		mapRequest.onload = function()
 		{
 			mapData = JSON.parse(mapRequest.responseText);
-			//console.log(cu);
 			for(let i = 0; i < seedData.length; i++)
 			{
-				DrawField(map, showArrays, cultureData[seedData[i].culture -1].color, JSON.parse(mapData[seedData[i].field-1].polygon), i);
+				field ="";
+				culture = "";
+				for(let j = 0; j < mapData.length; j++)
+				{
+					console.log(seedData[i].field, mapData[j].pk)
+					if(seedData[i].field == mapData[j].id)
+						field = mapData[j]
+				}
+				for(let j = 0; j < cultureData.length; j++)
+				{
+					if(seedData[i].culture == cultureData[j].id)
+						culture = cultureData[j]
+				}
+				DrawField(map, showArrays, culture, field, i);
 			}
 		}
 		seedRequest.send();
-
-		
 
 		let options = {
 			zoom:18,
@@ -55,71 +68,29 @@
 
 		map = new google.maps.Map(document.getElementById('map'), options);
 		infoWindow = new google.maps.InfoWindow;
-
-
-		var isClosed = false;
-    var poly = new google.maps.Polyline({ map: map, path: [], strokeColor: "#FF0000", strokeOpacity: 1.0, strokeWeight: 2 });
-    google.maps.event.addListener(map, 'click', function (clickEvent) {
-        if (isClosed)
-            return;
-        var markerIndex = poly.getPath().length;
-        var isFirstMarker = markerIndex === 0;
-        var marker = new google.maps.Marker({ map: map, position: clickEvent.latLng, draggable: true });
-        if (isFirstMarker) {
-            google.maps.event.addListener(marker, 'click', function () {
-                if (isClosed)
-                    return;
-                var path = poly.getPath();
-                poly.setMap(null);
-                poly = new google.maps.Polygon({ map: map, path: path, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 2, fillColor: "#FF0000", fillOpacity: 0.35 });
-                isClosed = true;
-            });
-        }
-        google.maps.event.addListener(marker, 'drag', function (dragEvent) {
-            poly.getPath().setAt(markerIndex, dragEvent.latLng);
-        });
-        poly.getPath().push(clickEvent.latLng);
-    });
 	}
 
-	[{"lat": 49.327250, "lng": 31.518933},{"lat": 49.327394, "lng": 31.519160},{"lat": 49.327691, "lng": 31.519306},{"lat": 49.327286, "lng": 31.519880},{"lat": 49.326884, "lng": 31.519403},{"lat": 49.327250, "lng": 31.518933}]
-
-	function DrawField(map, fieldDetailFunc, color, coords, id)
+	function DrawField(map, fieldDetailFunc,  culture, field, id)
 	{
 		let fieldTriangle = new google.maps.Polygon({
-		      	paths: coords,
-		      	strokeColor: color,
+		      	paths: JSON.parse(field.polygon),
+		      	strokeColor: culture.color,
 		      	strokeOpacity: 0.8,
 		      	strokeWeight: 2,
-		      	fillColor: color,
+		      	fillColor: culture.color,
 		      	fillOpacity: 0.35
 	    });
 	    fieldTriangle.setMap(map);
-	    fieldDetail = "<p></p>";
-	    fieldTriangle.addListener('click', fieldDetailFunc);
+	    fieldTriangle.addListener('click', function(event){
+	    	showArrays(event, field, culture)
+	    });
 	}
 
-	function showArrays(event)
+	function showArrays(event, field, culture)
 	{
 	    // Replace the info window's content and position.
-	    infoWindow.setContent(fieldDetail);
+	    infoWindow.setContent("<h6>"+field.title+"<h6><p>"+culture.name+"</p><p>Площа: "+field.square+" км2</p>");
 	    infoWindow.setPosition(event.latLng);
 
 	    infoWindow.open(map);
-		}
-
-		var acc = document.getElementsByClassName("accordion");
-	var i;
-
-	for (i = 0; i < acc.length; i++) {
-	    acc[i].addEventListener("click", function() {
-	        this.classList.toggle("active");
-	        var panel = this.nextElementSibling;
-	        if (panel.style.display === "block") {
-	            panel.style.display = "none";
-	        } else {
-	            panel.style.display = "block";
-	        }
-	    });
 	}
-//}

@@ -21,35 +21,57 @@ body
     background-size: cover;
 }
 
-.map-window-block
+.orange-text
 {
-    border: 2px solid #262a2c;
-    background-color: rgba(0,0,0,0.5);
-    margin: 10px 0px 10px 10px;
-    color: #9e9e9e;
-    text-align: center;
-}
-
-.map-window-block p{
-    margin-top: 5px;
-    margin-bottom: 5px;
+    color: #f4c700;
 }
 
 .window-block
 {
-    border: 2px solid #262a2c;
-    background-color: rgba(0,0,0,0.5);
-    margin: 10px 0px 10px 10px;
-    padding: 5px 10px 5px 10px;
+    
     color: #9e9e9e;
+    height: 100%;
+    padding-top: 2vh;
 }
 
+.window-block-head
+{
+    display: flex;
+    border: 2px solid #262a2c;
+    background-color: rgba(0,0,0,0.7);
+    margin: 0 0 0 0;
+    height: 6vh;
+}
+
+.window-block-head p
+{
+    margin: auto;
+}
+
+
+.window-block-body
+{
+    height: 90vh;
+    border-bottom:  2px solid #262a2c;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#map
+{
+    height: 100%;
+}
+
+.table-container
+{
+    width: 100%;
+    height: 90%;
+}
 
 table
 {
     width: 100%;
     border-collapse: collapse;
-        background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.3);
 }
 
 th
@@ -73,24 +95,130 @@ td
 }
 
 
-
-#map
+.page
 {
-	height: 100vh;
+    margin-left: 10vw;
+    width: 90vw;
+    height: 100vh;
 }
 
-body
+.sidebar-nav
 {
-    font-family: EveSansRegular;
-	margin: 0px;
-	padding: 0px;
-    background-color: #000;
-    display: inline;
+    padding: 0px 0px 0px 0px;
 }
 
-.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
+.eve-header
+{
+    font-size: 18px;
+    font-family: EveSansAlpha;
+}
+
+#sidebar-wrapper
+{
+    position: fixed;
+    left: -10vw;
+    width: 10vw;
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.8);
+    transition: all 500ms linear;
+
+}
+
+#sidebar-wrapper.active
+{
+    left: 0vw;
+}
+
+.toggle-place
+{
+    height: 10vh;
+}
+
+#sidebar-nav-li 
+{
+    padding: 32px 8px;
+    text-align: center;
+}
+
+#sidebar-nav-li a
+{
+    color: #aaa;
+    text-decoration: none;
+}
+
+#sidebar-nav-li a:hover
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#sidebar-nav-li a i
+{
+   font-size: 42px;
+   padding-bottom: 10px;
+}
+
+#toggle-btn
+{
+    position: absolute;
+    left: 12vw;
+    top: 30px;
+    cursor: pointer;
+    transition: all 500ms linear;
+}
+
+#toggle-btn.active
+{
+    left: 4vw;
+}
+
+#toggle-btn i
+{
+    font-size: 36px;
+    color: #aaa;
+}
+
+#toggle-btn span
+{
+    display: block;
+    width: 40px;
+    height: 6px;
+    background: #aaa;
+    margin: 6px 0px;
+}
+
+
+.co-button
+{
+    border: 0px solid #000;
+    background-color: #2980B9;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.co-button:hover
+{
+    border: 0px solid #000;
+    background-color: #fff;
+    color: #000;
+    font-size: 18px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+}
+
+.co-button a
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+.co-button:hover a
+{
+    color: #000;
+    text-decoration: none;
 }
